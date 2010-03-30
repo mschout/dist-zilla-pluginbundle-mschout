@@ -38,7 +38,7 @@ sub bundle_config {
         [ PodWeaver   => {} ],
         [
             NextRelease => {
-                format => '%-2v %{yyyy-MM-dd}d',
+                format => '%-2v  %{yyyy-MM-dd}d',
             }
         ],
         [ Repository  => { } ],
