@@ -49,8 +49,8 @@ sub bundle_config {
     push @plugins, @extra;
 
     push @plugins, Dist::Zilla::PluginBundle::Git->bundle_config({
-            name    => "$section->{name}/\@Git",
-            payload => { }
+        name    => "$section->{name}/\@Git",
+        payload => { }
     });
 
     return @plugins;
