@@ -2,8 +2,11 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
 
+0.13  2010-03-30
+    - add BumpVersionFromGit plugin
+
 0.12  2010-03-29
-    - use FakeRelease releaser.
+    - use FakeRelease releaser
 
 0.11  2010-03-29
     - turn off CPAN uploads, use ArchiveRelease releaser plugin
