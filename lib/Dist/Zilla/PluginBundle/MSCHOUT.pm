@@ -23,11 +23,17 @@ sub bundle_config {
 
     my $args = $section->{payload};
 
+    my $upload = $$args{no_upload} ? 0 : 1;
+
     my @plugins = Dist::Zilla::PluginBundle::Filter->bundle_config({
         name => $section->{name} . '/@Classic',
         payload => {
             bundle => '@Classic',
-            remove => [qw(PodVersion)]
+            remove => [
+                'PodVersion',
+                # remove UploadToCPAN if no_upload is given
+                ($upload ? () : 'UploadToCPAN')
+            ]
         }
     });
 
