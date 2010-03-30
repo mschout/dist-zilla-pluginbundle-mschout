@@ -10,12 +10,12 @@ with 'Dist::Zilla::Role::PluginBundle';
 use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git;
 use Dist::Zilla::Plugin::AutoPrereq;
-use Dist::Zilla::Plugin::PodWeaver;
-use Dist::Zilla::Plugin::NextRelease;
-use Dist::Zilla::Plugin::NextRelease;
-use Dist::Zilla::Plugin::Repository;
 use Dist::Zilla::Plugin::Bugtracker;
+use Dist::Zilla::Plugin::BumpVersionFromGit;
 use Dist::Zilla::Plugin::Homepage;
+use Dist::Zilla::Plugin::NextRelease;
+use Dist::Zilla::Plugin::PodWeaver;
+use Dist::Zilla::Plugin::Repository;
 use Dist::Zilla::Plugin::Signature;
 
 sub bundle_config {
@@ -51,6 +51,11 @@ sub bundle_config {
         [ Bugtracker  => { } ],
         [ Homepage    => { } ],
         [ Signature   => { } ],
+        [
+            BumpVersionFromGit => {
+                first_version => 'v0.01'
+            }
+        ],
     );
     push @plugins, @extra;
 
@@ -87,12 +92,13 @@ It's equivalent to:
  bundle = @Classic
  remove = PodVersion
 
- [AutoPrereq]
- [PodWeaver]
- [NextRelease]
  [@Git]
- [Repository]
+ [AutoPrereq]
  [Bugtracker]
+ [BumpVersionFromGit]
  [Homepage]
+ [NextRelease]
+ [PodWeaver]
+ [Repository]
  [Signature]
 
