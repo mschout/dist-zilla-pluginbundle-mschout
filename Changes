@@ -1,4 +1,6 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.10  2010-03-29
     - initial release
