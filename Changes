@@ -2,6 +2,8 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
 
+0.15  2010-03-30
+
 0.14  2010-03-30
     - add Pod::Weaver::Section::SourceGitHub, Pod::Weaver::Section::BugsRT
       to prereq's
