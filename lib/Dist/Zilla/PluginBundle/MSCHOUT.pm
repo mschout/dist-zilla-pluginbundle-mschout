@@ -9,6 +9,7 @@ with 'Dist::Zilla::Role::PluginBundle';
 
 use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git;
+use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::AutoPrereq;
 use Dist::Zilla::Plugin::Bugtracker;
 use Dist::Zilla::Plugin::BumpVersionFromGit;
@@ -56,6 +57,7 @@ sub bundle_config {
                 first_version => 'v0.01'
             }
         ],
+        [ ArchiveRelease => { } ],
     );
     push @plugins, @extra;
 
