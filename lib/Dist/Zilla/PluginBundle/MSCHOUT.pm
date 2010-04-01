@@ -54,7 +54,7 @@ sub bundle_config {
         [ Signature   => { } ],
         [
             BumpVersionFromGit => {
-                first_version => 'v0.01'
+                first_version => '0.01'
             }
         ],
         [ ArchiveRelease => { } ],
