@@ -95,6 +95,7 @@ It's equivalent to:
  remove = PodVersion
 
  [@Git]
+ [ArchiveRelease]
  [AutoPrereq]
  [Bugtracker]
  [BumpVersionFromGit]
