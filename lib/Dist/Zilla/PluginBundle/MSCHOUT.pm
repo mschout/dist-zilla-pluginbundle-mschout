@@ -19,6 +19,11 @@ sub configure {
         remove => ['PodVersion', ($upload ? () : 'UploadToCPAN')]
     });
 
+    # add FakeRelease plugin if uploads are off
+    unless ($upload) {
+        $self->add_plugins('FakeRelease');
+    }
+
     $self->add_plugins(
         qw(
             AutoPrereq
@@ -56,7 +61,10 @@ configure
 This is the pluginbundle that MSCHOUT uses. Use it as:
 
  [@MSCHOUT]
- dist = MyDist
+
+Optionally, for a dist that you do not want to upload to CPAN:
+ [@MSCHOUT]
+ no_upload = 1
 
 It's equivalent to:
 
@@ -75,3 +83,4 @@ It's equivalent to:
  [Repository]
  [Signature]
 
+In addition, if C<no_upload> is true, then C<UploadToCPAN> is replaced with C<FakeRelease>.
