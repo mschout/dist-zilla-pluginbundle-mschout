@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - simplify with Dist::Zilla::PluginBundle::Easy
+    - require Dist::Zilla 2.101040
 
 0.12  2010-04-09
     - add Pod::Weaver::Section::SourceGitHub, Pod::Weaver::Section::BugsRT

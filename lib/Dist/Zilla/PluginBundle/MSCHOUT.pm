@@ -5,68 +5,38 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 use Moose;
 use Moose::Autobox;
 
-with 'Dist::Zilla::Role::PluginBundle';
+with 'Dist::Zilla::Role::PluginBundle::Easy';
 
-use Dist::Zilla::PluginBundle::Filter;
-use Dist::Zilla::PluginBundle::Git;
-use Dist::Zilla::Plugin::ArchiveRelease;
-use Dist::Zilla::Plugin::AutoPrereq;
-use Dist::Zilla::Plugin::Bugtracker;
-use Dist::Zilla::Plugin::BumpVersionFromGit;
-use Dist::Zilla::Plugin::Homepage;
-use Dist::Zilla::Plugin::NextRelease;
-use Dist::Zilla::Plugin::PodWeaver;
-use Dist::Zilla::Plugin::Repository;
-use Dist::Zilla::Plugin::Signature;
+sub configure {
+    my $self = shift;
 
-sub bundle_config {
-    my ($self, $section) = @_;
-
-    my $args = $section->{payload};
+    my $args = $self->payload;
 
     my $upload = $$args{no_upload} ? 0 : 1;
 
-    my @plugins = Dist::Zilla::PluginBundle::Filter->bundle_config({
-        name => $section->{name} . '/@Classic',
-        payload => {
-            bundle => '@Classic',
-            remove => [
-                'PodVersion',
-                # remove UploadToCPAN if no_upload is given
-                ($upload ? () : 'UploadToCPAN')
-            ]
-        }
+    $self->add_bundle(Filter => {
+        bundle => '@Classic',
+        remove => ['PodVersion', ($upload ? () : 'UploadToCPAN')]
     });
 
-    my $prefix = 'Dist::Zilla::Plugin::';
-    my @extra = map {[ "$section->{name}/$_->[0]" => "$prefix$_->[0]" => $_->[1] ]}
-    (
-        [ AutoPrereq  => {} ],
-        [ PodWeaver   => {} ],
-        [
-            NextRelease => {
-                format => '%-2v  %{yyyy-MM-dd}d',
-            }
-        ],
-        [ Repository  => { } ],
-        [ Bugtracker  => { } ],
-        [ Homepage    => { } ],
-        [ Signature   => { } ],
+    $self->add_plugins(
+        qw(
+            AutoPrereq
+            PodWeaver
+            Repository
+            Bugtracker
+            Homepage
+            Signature
+            ArchiveRelease
+        ),
         [
             BumpVersionFromGit => {
                 first_version => '0.01'
             }
-        ],
-        [ ArchiveRelease => { } ],
+        ]
     );
-    push @plugins, @extra;
 
-    push @plugins, Dist::Zilla::PluginBundle::Git->bundle_config({
-        name    => "$section->{name}/\@Git",
-        payload => { }
-    });
-
-    return @plugins;
+    $self->add_bundle('Git');
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -77,7 +47,7 @@ __END__
 
 =begin Pod::Coverage
 
-bundle_config
+configure
 
 =end Pod::Coverage
 
