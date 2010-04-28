@@ -14,9 +14,16 @@ sub configure {
 
     my $upload = $$args{no_upload} ? 0 : 1;
 
+    my @remove = qw(PodVersion);
+
+    # if not uploading, remove the upload plugin, and the confirmation plugin
+    unless ($upload) {
+        push @remove, 'UploadToCPAN', 'ConfirmRelease';
+    }
+
     $self->add_bundle(Filter => {
         bundle => '@Classic',
-        remove => ['PodVersion', ($upload ? () : 'UploadToCPAN')]
+        remove => \@remove
     });
 
     # add FakeRelease plugin if uploads are off
