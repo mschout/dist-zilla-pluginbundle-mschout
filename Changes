@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.16  2010-05-03
     - add NextRelease back in - was missing since 0.13
 
 0.15
