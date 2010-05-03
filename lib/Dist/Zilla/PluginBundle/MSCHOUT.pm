@@ -40,18 +40,21 @@ sub configure {
             Homepage
             Signature
             ArchiveRelease
+            Git::CommitBuild
         ),
+        [
+            NextRelease => {
+                format => '%-2v  %{yyyy-MM-dd}d'
+            }
+        ],
         [
             BumpVersionFromGit => {
                 first_version => '0.01'
             }
-        ]
+        ],
     );
 
     $self->add_bundle('Git');
-
-    $self->add_plugins('Git::CommitBuild');
-
 }
 
 __PACKAGE__->meta->make_immutable;
