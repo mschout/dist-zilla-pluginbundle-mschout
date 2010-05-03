@@ -1,6 +1,9 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - add NextRelease back in - was missing since 0.13
+
+0.15
     - add Git::CommitBuild plugin
 
 0.14
