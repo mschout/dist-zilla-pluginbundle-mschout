@@ -2,6 +2,7 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
     - if no_upload is true, remove ConfirmRelease
+    - add Git::CommitBuild plugin
 
 0.13  2010-04-14
     - simplify with Dist::Zilla::PluginBundle::Easy

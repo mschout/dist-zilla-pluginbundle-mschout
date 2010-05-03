@@ -49,6 +49,9 @@ sub configure {
     );
 
     $self->add_bundle('Git');
+
+    $self->add_plugins('Git::CommitBuild');
+
 }
 
 __PACKAGE__->meta->make_immutable;
