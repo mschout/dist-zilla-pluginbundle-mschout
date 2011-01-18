@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.17  2011-01-18
     - update to work with Dist::Zilla 4.x [(Auto)Prereq -> (Auto)Prereqs)]
     - require Dist::Zilla 4.102341
 
