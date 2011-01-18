@@ -33,7 +33,7 @@ sub configure {
 
     $self->add_plugins(
         qw(
-            AutoPrereq
+            AutoPrereqs
             PodWeaver
             Repository
             Bugtracker
@@ -87,7 +87,7 @@ It's equivalent to:
 
  [@Git]
  [ArchiveRelease]
- [AutoPrereq]
+ [AutoPrereqs]
  [Bugtracker]
  [BumpVersionFromGit]
  [Homepage]
