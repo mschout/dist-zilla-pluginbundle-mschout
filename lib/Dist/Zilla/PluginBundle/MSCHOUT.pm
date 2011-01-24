@@ -1,4 +1,7 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
+BEGIN {
+  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.18';
+}
 
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
@@ -85,13 +88,17 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 1;
 
-__END__
 
-=begin Pod::Coverage
 
-configure
+=pod
 
-=end Pod::Coverage
+=head1 NAME
+
+Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
+
+=head1 VERSION
+
+version 0.18
 
 =head1 DESCRIPTION
 
@@ -121,3 +128,22 @@ It's equivalent to:
  [Signature]
 
 In addition, if C<no_upload> is true, then C<UploadToCPAN> is replaced with C<FakeRelease>.
+
+=for Pod::Coverage configure
+
+=head1 AUTHOR
+
+  Michael Schout <mschout@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Michael Schout.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
+
+__END__
+
