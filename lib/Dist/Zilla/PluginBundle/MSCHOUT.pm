@@ -40,21 +40,45 @@ sub configure {
             Homepage
             Signature
             ArchiveRelease
-            Git::CommitBuild
         ),
+        # update release in Changes file
         [
             NextRelease => {
                 format => '%-2v  %{yyyy-MM-dd}d'
             }
         ],
+        $self->_git_plugins
+    );
+}
+
+sub _git_plugins {
+    my $release_branch = 'build/releases';
+
+    return (
+        qw(
+            Git::Check
+            Git::Commit
+        ),
+        # generate next version from Git tags
         [
             BumpVersionFromGit => {
                 first_version => '0.01'
             }
         ],
+        # commit builds to release branch
+        [
+            'Git::CommitBuild' => {
+                release_branch => $release_branch
+            }
+        ],
+        # add tags on release branch
+        [
+            'Git::Tag' => {
+                branch => $release_branch
+            }
+        ],
+        'Git::Push'
     );
-
-    $self->add_bundle('Git');
 }
 
 __PACKAGE__->meta->make_immutable;
