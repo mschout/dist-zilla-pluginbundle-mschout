@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.19  2011-01-25
     - code cleanups.
     - doc fixes.
     - add release_branch configuration arg
