@@ -43,7 +43,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver::Section::BugsRT' => '0',
     'Pod::Weaver::Section::SourceGitHub' => '0'
   },
-  'VERSION' => '0.18',
+  'VERSION' => '0.19',
   'test' => {
     'TESTS' => 't/*.t'
   }
