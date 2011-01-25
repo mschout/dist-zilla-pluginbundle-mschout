@@ -13,6 +13,7 @@ sub configure {
     my $args = $self->payload;
 
     my $upload = $$args{no_upload} ? 0 : 1;
+    my $release_branch = $$args{release_branch} || 'build/releases';
 
     my @remove = qw(PodVersion);
 
@@ -42,42 +43,17 @@ sub configure {
             ArchiveRelease
         ),
         # update release in Changes file
-        [
-            NextRelease => {
-                format => '%-2v  %{yyyy-MM-dd}d'
-            }
-        ],
-        $self->_git_plugins
-    );
-}
-
-sub _git_plugins {
-    my $release_branch = 'build/releases';
-
-    return (
+        [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ],
         qw(
             Git::Check
             Git::Commit
         ),
-        # generate next version from Git tags
-        [
-            BumpVersionFromGit => {
-                first_version => '0.01'
-            }
-        ],
-        # commit builds to release branch
-        [
-            'Git::CommitBuild' => {
-                release_branch => $release_branch
-            }
-        ],
-        # add tags on release branch
-        [
-            'Git::Tag' => {
-                branch => $release_branch
-            }
-        ],
-        'Git::Push'
+        [ 'BumpVersionFromGit' => { first_version => '0.01' } ],
+        [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
+        [ 'Git::Tag' => { branch => $release_branch } ],
+        qw(
+            Git::Push
+        )
     );
 }
 
@@ -109,15 +85,37 @@ It's equivalent to:
  bundle = @Classic
  remove = PodVersion
 
- [@Git]
- [ArchiveRelease]
  [AutoPrereqs]
- [Bugtracker]
- [BumpVersionFromGit]
- [Homepage]
- [NextRelease]
  [PodWeaver]
  [Repository]
+ [Bugtracker]
+ [Homepage]
  [Signature]
+ [ArchiveRelease]
+ [NextRelease]
+    format = "%-2v  %{yyyy-MM-dd}d"
+ [Git::Check]
+ [Git::Commit]
+ [BumpVersionFromGit]
+    first_version = 0.01
+ [Git::CommitBuild]
+    release_branch = build/releases
+ [Git::Tag]
+    branch = build/releases
+ [Git::Push]
 
-In addition, if C<no_upload> is true, then C<UploadToCPAN> is replaced with C<FakeRelease>.
+=head2 Options
+
+The following configuration settings are available:
+
+=over 4
+
+=item * no_upload
+
+Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
+
+=item * release_branch
+
+Sets the release branch name.  Default is C<build/releases>.
+
+=back

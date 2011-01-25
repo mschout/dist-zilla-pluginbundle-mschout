@@ -1,6 +1,9 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - code cleanups.
+    - doc fixes.
+    - add release_branch configuration arg
 
 0.18  2011-01-24
     - enable Git::CommitBuild, building releases on build/releases branch.
