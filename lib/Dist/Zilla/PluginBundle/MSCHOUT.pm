@@ -35,7 +35,6 @@ sub configure {
     $self->add_plugins(
         qw(
             AutoPrereqs
-            PodWeaver
             Repository
             Bugtracker
             Homepage
@@ -44,6 +43,7 @@ sub configure {
         ),
         # update release in Changes file
         [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ],
+        [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
         qw(
             Git::Check
             Git::Commit

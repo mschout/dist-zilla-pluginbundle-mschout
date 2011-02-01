@@ -1,6 +1,7 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - add Pod::Weaver::PluginBundle::MSCHOUT
 
 0.19  2011-01-25
     - code cleanups.
