@@ -48,3 +48,5 @@ __END__
 This is the L<Pod::Weaver> config I use for building my documentation.  I use
 it with L<Dist::Zilla::PluginBundle::MSCHOUT>
 
+=for Pod::Coverage mvp_bundle_config
+
