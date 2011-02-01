@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
 BEGIN {
-  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.19';
+  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.20';
 }
 
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
@@ -38,7 +38,6 @@ sub configure {
     $self->add_plugins(
         qw(
             AutoPrereqs
-            PodWeaver
             Repository
             Bugtracker
             Homepage
@@ -47,6 +46,7 @@ sub configure {
         ),
         # update release in Changes file
         [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ],
+        [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
         qw(
             Git::Check
             Git::Commit
@@ -74,7 +74,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.19
+version 0.20
 
 =head1 DESCRIPTION
 
@@ -128,6 +128,16 @@ Sets the release branch name.  Default is C<build/releases>.
 =back
 
 =for Pod::Coverage configure
+
+=head1 SOURCE
+
+The development version is on github at L<http://github.com/mschout/dist-zilla-pluginbundle-mschout>
+and may be cloned from L<git://github.com/mschout/dist-zilla-pluginbundle-mschout.git>
+
+=head1 BUGS
+
+Please report any bugs or feature requests to bug-dist-zilla-pluginbundle-mschout@rt.cpan.org or through the web interface at:
+ http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-MSCHOUT
 
 =head1 AUTHOR
 

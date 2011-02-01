@@ -40,10 +40,12 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Role::PluginBundle::Easy' => '0',
     'Moose' => '0',
     'Moose::Autobox' => '0',
+    'Pod::Weaver::Config::Assembler' => '0',
     'Pod::Weaver::Section::BugsRT' => '0',
-    'Pod::Weaver::Section::SourceGitHub' => '0'
+    'Pod::Weaver::Section::SourceGitHub' => '0',
+    'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.19',
+  'VERSION' => '0.20',
   'test' => {
     'TESTS' => 't/*.t'
   }
