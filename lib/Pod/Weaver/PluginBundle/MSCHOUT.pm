@@ -1,6 +1,6 @@
 package Pod::Weaver::PluginBundle::MSCHOUT;
 BEGIN {
-  $Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.20';
+  $Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.21';
 }
 
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
@@ -38,7 +38,8 @@ sub mvp_bundle_config {
         [ '@MSCHOUT/postlude', _exp('Region'), { region_name => 'postlude' } ],
 
         [ '@MSCHOUT/Authors', _exp('Authors'), {} ],
-        [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ]
+        [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ],
+        [ '@MSCHOUT/List',    _exp('-Transformer'), { transformer => 'List' } ],
     );
 }
 
@@ -54,7 +55,7 @@ Pod::Weaver::PluginBundle::MSCHOUT - Pod::Weaver configuration the way MSCHOUT d
 
 =head1 VERSION
 
-version 0.20
+version 0.21
 
 =head1 DESCRIPTION
 
@@ -75,7 +76,7 @@ Please report any bugs or feature requests to bug-dist-zilla-pluginbundle-mschou
 
 =head1 AUTHOR
 
-  Michael Schout <mschout@cpan.org>
+Michael Schout <mschout@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

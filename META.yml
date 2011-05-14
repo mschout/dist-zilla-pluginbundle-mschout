@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200000, CPAN::Meta::Converter version 2.102400'
+generated_by: 'Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.102400'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -32,6 +32,7 @@ requires:
   Dist::Zilla::Role::PluginBundle::Easy: 0
   Moose: 0
   Moose::Autobox: 0
+  Pod::Elemental::Transformer::List: 0
   Pod::Weaver::Config::Assembler: 0
   Pod::Weaver::Section::BugsRT: 0
   Pod::Weaver::Section::SourceGitHub: 0
@@ -40,4 +41,4 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-MSCHOUT
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-MSCHOUT/
   repository: git://github.com/mschout/dist-zilla-pluginbundle-mschout.git
-version: 0.20
+version: 0.21

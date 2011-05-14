@@ -1,6 +1,6 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
 BEGIN {
-  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.20';
+  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.21';
 }
 
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
@@ -74,7 +74,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.20
+version 0.21
 
 =head1 DESCRIPTION
 
@@ -141,7 +141,7 @@ Please report any bugs or feature requests to bug-dist-zilla-pluginbundle-mschou
 
 =head1 AUTHOR
 
-  Michael Schout <mschout@cpan.org>
+Michael Schout <mschout@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
