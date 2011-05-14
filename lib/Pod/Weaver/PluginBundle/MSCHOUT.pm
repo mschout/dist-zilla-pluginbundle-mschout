@@ -35,7 +35,8 @@ sub mvp_bundle_config {
         [ '@MSCHOUT/postlude', _exp('Region'), { region_name => 'postlude' } ],
 
         [ '@MSCHOUT/Authors', _exp('Authors'), {} ],
-        [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ]
+        [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ],
+        [ '@MSCHOUT/List',    _exp('-Transformer'), { transformer => 'List' } ],
     );
 }
 

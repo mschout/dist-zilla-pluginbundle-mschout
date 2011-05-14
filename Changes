@@ -1,6 +1,7 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - use Pod::Elemental::Transformer::List
 
 0.20  2011-02-01
     - add Pod::Weaver::PluginBundle::MSCHOUT
