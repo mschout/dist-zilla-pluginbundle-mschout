@@ -7,6 +7,13 @@ use Moose::Autobox;
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+has is_task => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{task} }
+);
+
 sub configure {
     my $self = shift;
 
@@ -21,6 +28,8 @@ sub configure {
     unless ($upload) {
         push @remove, 'UploadToCPAN', 'ConfirmRelease';
     }
+
+    $self->add_plugins('CheckPrereqsIndexed');
 
     $self->add_bundle(Filter => {
         bundle => '@Classic',
@@ -42,13 +51,27 @@ sub configure {
             ArchiveRelease
         ),
         # update release in Changes file
-        [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ],
-        [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
+        [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ]
+    );
+
+    if ($self->is_task) {
+        $self->add_plugins(
+            'TaskWeaver',
+            [ AutoVersion => { time_zone => 'America/Chicago' } ]
+        );
+    }
+    else {
+        $self->add_plugins(
+            [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
+            [ 'BumpVersionFromGit' => { first_version => '0.01' } ]
+        );
+    }
+
+    $self->add_plugins(
         qw(
             Git::Check
             Git::Commit
         ),
-        [ 'BumpVersionFromGit' => { first_version => '0.01' } ],
         [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
         [ 'Git::Tag' => { branch => $release_branch } ],
         qw(
@@ -108,14 +131,15 @@ It's equivalent to:
 
 The following configuration settings are available:
 
-=over 4
+=begin :list
 
-=item * no_upload
-
+* no_upload
 Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
-
-=item * release_branch
-
+* release_branch
 Sets the release branch name.  Default is C<build/releases>.
+* task
+Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
+C<BumpVersionFromGit>
 
-=back
+=end :list
+

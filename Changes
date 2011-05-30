@@ -1,6 +1,9 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - use CheckPrereqsIndexed plugin
+    - add "task" option which replaces Pod::Weaver with Task::Weaver, and uses
+      AutoVersion
 
 0.21  2011-05-13
     - use Pod::Elemental::Transformer::List
