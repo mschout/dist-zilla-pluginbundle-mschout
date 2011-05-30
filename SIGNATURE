@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.64.
+signed via the Module::Signature module, version 0.68.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,15 +14,15 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 d78b89ef5187b39eca102cf6103f16f23c505230 Changes
-SHA1 69ce7fe315a6f9e68f406c766a18b00f8ff4916c LICENSE
+SHA1 d8935716de219eadde02b05145b16524c337b30b Changes
+SHA1 4fd8ebb0b76e79683f3cace70017ceb8c81331b2 LICENSE
 SHA1 3844f6bfd14ac0ec40e32914a0b9792fea3cc2b8 MANIFEST
-SHA1 d490bd501679d7634b3e35fdf4888cf75ebbb0a1 META.yml
-SHA1 0fdede6b0a9a07a4dbb4de50836fbc5fcdc06511 Makefile.PL
-SHA1 5e5263c01011ef48b5bca9bc9aac82c523ecf191 README
-SHA1 f6198b19b884558bc3019a5b0a883dc269931ec9 dist.ini
-SHA1 e8a435e0e6ee8b98cc1c6fa92fada7b1691fa39b lib/Dist/Zilla/PluginBundle/MSCHOUT.pm
-SHA1 5cda340fe89a7589ae98a90690c142702cee7769 lib/Pod/Weaver/PluginBundle/MSCHOUT.pm
+SHA1 77ebd7b8a006690c6a4c698aad044ab8c63ea8f7 META.yml
+SHA1 45a889d625c065f94255059d4af12847d2ba0e54 Makefile.PL
+SHA1 7a08876804e2c1b26781a4efe205ba42b96b7b13 README
+SHA1 2e57e2426d5574bf0d5f3fdf8a53957e74f8d6ab dist.ini
+SHA1 07e074bc40621f7e5607f4baf64808ca8a47f860 lib/Dist/Zilla/PluginBundle/MSCHOUT.pm
+SHA1 baf0c27137ce55f7c259a0530b9f7bcf658b6dfa lib/Pod/Weaver/PluginBundle/MSCHOUT.pm
 SHA1 f9239771091f4b127519fc1861b78ed70a74bc38 t/compile.t
 SHA1 9433c240fe590bc404ab68ff63984df763e347ed t/release-pod-coverage.t
 SHA1 b30cbdfaf935017c4568c0c91b242438cb87786e t/release-pod-syntax.t
@@ -30,7 +30,7 @@ SHA1 61cea839dd94aaaeb301ccac9b83cde4c5c91b42 t/signature.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iEYEARECAAYFAk3N41sACgkQ+CqvSzp9LOy1PQCfT4GZA8Q5Rm0ntlHxXy+VeBuE
-UyUAn2Luxc3eJY9xKjhgn93h1bMx4E8W
-=SxO5
+iEYEARECAAYFAk3kD1sACgkQ+CqvSzp9LOz1VQCeIHyNTeTadYj0CbQYmorH5RvC
+ZwIAn1jElWa4VCQ9vq98/ccLIijrmEHx
+=7L4J
 -----END PGP SIGNATURE-----

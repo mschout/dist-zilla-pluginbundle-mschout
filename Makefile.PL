@@ -4,7 +4,7 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Dist-Zilla-PluginBundle-MSCHOUT',
   'EXE_FILES' => [],
@@ -34,6 +34,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::PodWeaver' => '0',
     'Dist::Zilla::Plugin::Repository' => '0',
     'Dist::Zilla::Plugin::Signature' => '0',
+    'Dist::Zilla::Plugin::TaskWeaver' => '0.093330',
     'Dist::Zilla::PluginBundle::Classic' => '0',
     'Dist::Zilla::PluginBundle::Filter' => '0',
     'Dist::Zilla::PluginBundle::Git' => '1.101230',
@@ -46,7 +47,7 @@ my %WriteMakefileArgs = (
     'Pod::Weaver::Section::SourceGitHub' => '0',
     'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.21',
+  'VERSION' => '0.22',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -1,6 +1,6 @@
 package Pod::Weaver::PluginBundle::MSCHOUT;
 BEGIN {
-  $Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.21';
+  $Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.22';
 }
 
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
@@ -55,7 +55,7 @@ Pod::Weaver::PluginBundle::MSCHOUT - Pod::Weaver configuration the way MSCHOUT d
 
 =head1 VERSION
 
-version 0.21
+version 0.22
 
 =head1 DESCRIPTION
 
