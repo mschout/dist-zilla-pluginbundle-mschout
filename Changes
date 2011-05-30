@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.22  2011-05-30
     - use CheckPrereqsIndexed plugin
     - add "task" option which replaces Pod::Weaver with Task::Weaver, and uses
       AutoVersion
