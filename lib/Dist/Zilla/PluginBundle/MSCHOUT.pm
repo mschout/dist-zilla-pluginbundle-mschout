@@ -1,8 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-BEGIN {
-  $Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.22';
-}
-
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.23';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -66,7 +63,7 @@ sub configure {
     else {
         $self->add_plugins(
             [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
-            [ 'BumpVersionFromGit' => { first_version => '0.01' } ]
+            [ 'Git::NextVersion' => { first_version => '0.01' } ]
         );
     }
 
@@ -87,7 +84,7 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 1;
 
-
+__END__
 
 =pod
 
@@ -97,7 +94,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.22
+version 0.23
 
 =head1 DESCRIPTION
 
@@ -179,13 +176,9 @@ Michael Schout <mschout@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Michael Schout.
+This software is copyright (c) 2016 by Michael Schout.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

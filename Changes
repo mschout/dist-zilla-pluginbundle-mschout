@@ -1,5 +1,9 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
+0.23  2016-06-27
+    - switch from deprecated BumpVersionFromGit to Git::NextVersion.  This is a
+      drop-in replacement.
+
 0.22  2011-05-30
     - use CheckPrereqsIndexed plugin
     - add "task" option which replaces Pod::Weaver with Task::Weaver, and uses
