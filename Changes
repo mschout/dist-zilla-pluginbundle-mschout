@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - switch from deprecated BumpVersionFromGit to Git::NextVersion.  This is a
+      drop-in replacement.
 
 0.22  2011-05-30
     - use CheckPrereqsIndexed plugin

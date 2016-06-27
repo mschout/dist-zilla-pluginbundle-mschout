@@ -63,7 +63,7 @@ sub configure {
     else {
         $self->add_plugins(
             [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
-            [ 'BumpVersionFromGit' => { first_version => '0.01' } ]
+            [ 'Git::NextVersion' => { first_version => '0.01' } ]
         );
     }
 
