@@ -1,5 +1,5 @@
 package Pod::Weaver::PluginBundle::MSCHOUT;
-$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.23';
+$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.24';
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
 
 # Dependencies
@@ -29,12 +29,27 @@ sub mvp_bundle_config {
 
         [ '@MSCHOUT/Leftovers', _exp('Leftovers'), {} ],
 
+        # SOURCE section using GitHub.  If present in POD already, POD value
+        # will be used.
         [ '@MSCHOUT/SourceGitHub', _exp('SourceGitHub'), {} ],
+        [ 'AllowOverride/Source', _exp('AllowOverride'), {
+                header_re      => '^SOURCE$',
+                action         => 'replace',
+                match_anywhere => 0
+            }
+        ],
         [ '@MSCHOUT/BugsRT',       _exp('BugsRT'),       {} ],
 
         [ '@MSCHOUT/postlude', _exp('Region'), { region_name => 'postlude' } ],
 
+        # AUTHOR section. Will use POD section if present already
         [ '@MSCHOUT/Authors', _exp('Authors'), {} ],
+        [ 'AllowOverride/Authors', _exp('AllowOverride'), {
+                header_re      => '^AUTHORS?$',
+                action         => 'replace',
+                match_anywhere => 0
+            }
+        ],
         [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ],
         [ '@MSCHOUT/List',    _exp('-Transformer'), { transformer => 'List' } ],
     );
@@ -52,7 +67,7 @@ Pod::Weaver::PluginBundle::MSCHOUT - Pod::Weaver configuration the way MSCHOUT d
 
 =head1 VERSION
 
-version 0.23
+version 0.24
 
 =head1 DESCRIPTION
 

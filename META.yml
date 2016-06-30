@@ -37,6 +37,7 @@ requires:
   Moose::Autobox: '0'
   Pod::Elemental::Transformer::List: '0'
   Pod::Weaver::Config::Assembler: '0'
+  Pod::Weaver::Section::AllowOverride: '0'
   Pod::Weaver::Section::BugsRT: '0'
   Pod::Weaver::Section::SourceGitHub: '0'
   namespace::autoclean: '0'
@@ -44,4 +45,4 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-MSCHOUT
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-MSCHOUT/
   repository: git://github.com/mschout/dist-zilla-pluginbundle-mschout.git
-version: '0.23'
+version: '0.24'
