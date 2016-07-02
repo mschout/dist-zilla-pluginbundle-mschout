@@ -84,6 +84,12 @@ sub configure {
     $self->add_plugins(
         [ RemovePrereqs => { remove => 'Module::Signature' } ]
     );
+
+    if ($$args{use_twitter}) {
+        $self->add_plugin(
+            [ Twitter => { hash_tags => '#perl' } ]
+        );
+    }
 }
 
 __PACKAGE__->meta->make_immutable;
