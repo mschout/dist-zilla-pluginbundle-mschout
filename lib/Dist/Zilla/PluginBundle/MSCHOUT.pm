@@ -131,7 +131,7 @@ It's equivalent to:
     format = "%-2v  %{yyyy-MM-dd}d"
  [Git::Check]
  [Git::Commit]
- [BumpVersionFromGit]
+ [Git::NextVersion]
     first_version = 0.01
  [Git::CommitBuild]
     release_branch = build/releases
@@ -151,7 +151,7 @@ Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
 Sets the release branch name.  Default is C<build/releases>.
 * task
 Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
-C<BumpVersionFromGit>
+C<Git::NextVersion>
 
 =end :list
 
