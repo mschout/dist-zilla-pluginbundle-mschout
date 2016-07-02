@@ -2,6 +2,12 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
 
+0.25  2016-07-02
+    - enable Twitter plugin if 'use_twitter' is set
+    - use RemovePrereqs to remove Module::Signature from prereqs since its
+      optional
+    - add missing dependency CheckPrereqsIndexed
+
 0.24  2016-06-30
     - PodWeaver: allow SOURCE and AUTHOR(S) sections to be overridden.
 
