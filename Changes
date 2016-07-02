@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.26  2016-07-02
     - fix typo causing breakage if use_twitter was set (oops)
 
 0.25  2016-07-02
