@@ -78,6 +78,12 @@ sub configure {
             Git::Push
         )
     );
+
+    # Module::Signature requires a massive wad of dependencies, and is
+    # optional.  Remove it from the PREREQ list.
+    $self->add_plugins(
+        [ RemovePrereqs => { remove => 'Module::Signature' } ]
+    );
 }
 
 __PACKAGE__->meta->make_immutable;
