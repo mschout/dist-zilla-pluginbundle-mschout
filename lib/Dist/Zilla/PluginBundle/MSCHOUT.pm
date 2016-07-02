@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.25';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.26';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -86,7 +86,7 @@ sub configure {
     );
 
     if ($$args{use_twitter}) {
-        $self->add_plugin(
+        $self->add_plugins(
             [ Twitter => { hash_tags => '#perl' } ]
         );
     }
@@ -106,7 +106,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.25
+version 0.26
 
 =head1 DESCRIPTION
 
@@ -135,7 +135,7 @@ It's equivalent to:
     format = "%-2v  %{yyyy-MM-dd}d"
  [Git::Check]
  [Git::Commit]
- [BumpVersionFromGit]
+ [Git::NextVersion]
     first_version = 0.01
  [Git::CommitBuild]
     release_branch = build/releases
@@ -166,7 +166,7 @@ Sets the release branch name.  Default is C<build/releases>.
 task
 
 Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
-C<BumpVersionFromGit>
+C<Git::NextVersion>
 
 =back
 
