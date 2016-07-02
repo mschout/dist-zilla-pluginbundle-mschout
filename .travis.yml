@@ -1,0 +1,17 @@
+---
+sudo: false
+language: perl
+perl:
+  - '5.24'
+env:
+  global:
+    - RELEASE_TESTING=1
+    - AUTHOR_TESTING=1
+before_install:
+  - eval $(curl https://travis-perl.github.io/init) --auto
+notifications:
+  email:
+    on_failure: always
+    on_success: change
+    recipients:
+      - mschout@cpan.org
