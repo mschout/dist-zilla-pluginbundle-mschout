@@ -86,7 +86,7 @@ sub configure {
     );
 
     if ($$args{use_twitter}) {
-        $self->add_plugin(
+        $self->add_plugins(
             [ Twitter => { hash_tags => '#perl' } ]
         );
     }
