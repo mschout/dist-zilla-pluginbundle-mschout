@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.24';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.25';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -78,6 +78,18 @@ sub configure {
             Git::Push
         )
     );
+
+    # Module::Signature requires a massive wad of dependencies, and is
+    # optional.  Remove it from the PREREQ list.
+    $self->add_plugins(
+        [ RemovePrereqs => { remove => 'Module::Signature' } ]
+    );
+
+    if ($$args{use_twitter}) {
+        $self->add_plugin(
+            [ Twitter => { hash_tags => '#perl' } ]
+        );
+    }
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -94,7 +106,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.24
+version 0.25
 
 =head1 DESCRIPTION
 
