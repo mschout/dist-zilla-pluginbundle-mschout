@@ -94,7 +94,7 @@ sub configure {
         [ RemovePrereqs => { remove => 'Module::Signature' } ]
     );
 
-    if ($$args{use_twitter}) {
+    if ($$args{use_twitter} and $upload) {
         $self->add_plugins(
             [ Twitter => { hash_tags => '#perl' } ]
         );
@@ -161,6 +161,11 @@ Sets the release branch name.  Default is C<build/releases>.
 * task
 Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
 C<Git::NextVersion>
+* use_travis
+Enables the L<TravisYML|Dist::Zilla::Plugin::TravisYML> Dist Zilla plugin.
+* use_twitter
+Enables the L<Twitter|Dist::Zilla::Plugin::Twitter> Dist Zilla plugin.  If
+C<no_upload> is set, this plugin is skipped.
 
 =end :list
 

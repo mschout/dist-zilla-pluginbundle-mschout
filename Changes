@@ -1,6 +1,7 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - Mention use_travis and use_twitter options in POD docs
 
 0.29  2016-07-04
     - 0.28 accidentally completely removed Git::Push. Fixed.
