@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.28';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.29';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -83,6 +83,9 @@ sub configure {
         ),
         [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
         [ 'Git::Tag'         => { branch => $release_branch } ],
+        qw(
+            Git::Push
+        )
     );
 
     # Module::Signature requires a massive wad of dependencies, and is
@@ -112,7 +115,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.28
+version 0.29
 
 =head1 DESCRIPTION
 
