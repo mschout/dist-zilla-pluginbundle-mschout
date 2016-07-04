@@ -1,6 +1,7 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - 0.28 accidentally completely removed Git::Push. Fixed.
 
 0.28  2016-07-04
     - back out build/releases push config - this auto pushes anayway if remote

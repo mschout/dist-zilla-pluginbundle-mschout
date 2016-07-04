@@ -83,6 +83,9 @@ sub configure {
         ),
         [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
         [ 'Git::Tag'         => { branch => $release_branch } ],
+        qw(
+            Git::Push
+        )
     );
 
     # Module::Signature requires a massive wad of dependencies, and is
