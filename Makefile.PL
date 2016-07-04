@@ -29,6 +29,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Repository" => 0,
     "Dist::Zilla::Plugin::Signature" => 0,
     "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
+    "Dist::Zilla::Plugin::TravisYML" => 0,
     "Dist::Zilla::Plugin::Twitter" => 0,
     "Dist::Zilla::PluginBundle::Classic" => 0,
     "Dist::Zilla::PluginBundle::Filter" => 0,
@@ -49,7 +50,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.26",
+  "VERSION" => "0.27",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -70,6 +71,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Plugin::Repository" => 0,
   "Dist::Zilla::Plugin::Signature" => 0,
   "Dist::Zilla::Plugin::TaskWeaver" => "0.093330",
+  "Dist::Zilla::Plugin::TravisYML" => 0,
   "Dist::Zilla::Plugin::Twitter" => 0,
   "Dist::Zilla::PluginBundle::Classic" => 0,
   "Dist::Zilla::PluginBundle::Filter" => 0,

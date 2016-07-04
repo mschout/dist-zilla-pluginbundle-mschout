@@ -1,5 +1,9 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
+0.27  2016-07-04
+    - add use_travis option to enable the TravisYML plugin
+    - configure Git::Push to push build/releases as well as master branch
+
 0.26  2016-07-02
     - fix typo causing breakage if use_twitter was set (oops)
 

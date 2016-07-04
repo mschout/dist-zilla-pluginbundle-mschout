@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.26';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.27';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -21,6 +21,7 @@ sub configure {
 
     my $upload = $$args{no_upload} ? 0 : 1;
     my $release_branch = $$args{release_branch} || 'build/releases';
+    my $use_travis = $$args{use_travis} ? 1 : 0;
 
     my @remove = qw(PodVersion);
 
@@ -67,16 +68,34 @@ sub configure {
         );
     }
 
+    # we must add Travis before Git::CommitBuild because CommitBuild needs to
+    # include the .travis.yml file
+    my %git_push_options;
+    if ($use_travis) {
+        $self->add_plugins(
+            [ 'TravisYML' => { build_branch => $release_branch } ]
+        );
+
+        push @{ $git_push_options{push_to} },
+            "origin ${release_branch}:${release_branch}",
+            'origin master:master';
+    }
+
     $self->add_plugins(
         qw(
             Git::Check
             Git::Commit
         ),
         [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
-        [ 'Git::Tag' => { branch => $release_branch } ],
-        qw(
-            Git::Push
-        )
+        [ 'Git::Tag'         => { branch => $release_branch } ],
+        [
+            'Git::Push'        => { push_to => 
+                [
+                    origin => 'master:master',
+                    origin => "${release_branch}:${release_branch}"
+                ]
+            }
+        ]
     );
 
     # Module::Signature requires a massive wad of dependencies, and is
@@ -106,7 +125,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.26
+version 0.27
 
 =head1 DESCRIPTION
 
