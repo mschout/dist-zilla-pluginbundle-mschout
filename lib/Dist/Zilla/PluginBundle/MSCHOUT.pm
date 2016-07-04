@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.29';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.30';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -115,7 +115,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.29
+version 0.30
 
 =head1 DESCRIPTION
 

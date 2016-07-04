@@ -1,5 +1,7 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
+0.30  2016-07-04
+
 0.29  2016-07-04
     - 0.28 accidentally completely removed Git::Push. Fixed.
 
