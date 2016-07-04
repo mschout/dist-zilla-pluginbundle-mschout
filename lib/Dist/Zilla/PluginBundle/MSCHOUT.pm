@@ -70,15 +70,10 @@ sub configure {
 
     # we must add Travis before Git::CommitBuild because CommitBuild needs to
     # include the .travis.yml file
-    my %git_push_options;
     if ($use_travis) {
         $self->add_plugins(
             [ 'TravisYML' => { build_branch => $release_branch } ]
         );
-
-        push @{ $git_push_options{push_to} },
-            "origin ${release_branch}:${release_branch}",
-            'origin master:master';
     }
 
     $self->add_plugins(
@@ -88,14 +83,6 @@ sub configure {
         ),
         [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
         [ 'Git::Tag'         => { branch => $release_branch } ],
-        [
-            'Git::Push'        => { push_to => 
-                [
-                    origin => 'master:master',
-                    origin => "${release_branch}:${release_branch}"
-                ]
-            }
-        ]
     );
 
     # Module::Signature requires a massive wad of dependencies, and is

@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+    - back out build/releases push config - this auto pushes anayway if remote
+      branch exists.
 
 0.27  2016-07-04
     - add use_travis option to enable the TravisYML plugin
