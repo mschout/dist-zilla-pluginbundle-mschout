@@ -49,6 +49,7 @@ sub configure {
             Bugtracker
             Homepage
             Signature
+            MetaJSON
             ArchiveRelease
         ),
         # update release in Changes file
@@ -135,6 +136,7 @@ It's equivalent to:
  [Bugtracker]
  [Homepage]
  [Signature]
+ [MetaJSON]
  [ArchiveRelease]
  [NextRelease]
     format = "%-2v  %{yyyy-MM-dd}d"
