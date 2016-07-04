@@ -21,6 +21,7 @@ sub configure {
 
     my $upload = $$args{no_upload} ? 0 : 1;
     my $release_branch = $$args{release_branch} || 'build/releases';
+    my $use_travis = $$args{use_travis} ? 1 : 0;
 
     my @remove = qw(PodVersion);
 
@@ -64,6 +65,14 @@ sub configure {
         $self->add_plugins(
             [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
             [ 'Git::NextVersion' => { first_version => '0.01' } ]
+        );
+    }
+
+    # we must add Travis before Git::CommitBuild because CommitBuild needs to
+    # include the .travis.yml file
+    if ($use_travis) {
+        $self->add_plugins(
+            [ 'TravisYML' => { build_branch => $release_branch } ]
         );
     }
 
