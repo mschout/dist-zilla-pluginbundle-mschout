@@ -10,7 +10,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 6.005, CPAN::Meta::Converter version 2.150005'
+generated_by: 'Dist::Zilla version 6.006, CPAN::Meta::Converter version 2.143240'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -25,6 +25,7 @@ requires:
   Dist::Zilla::Plugin::FakeRelease: '0'
   Dist::Zilla::Plugin::Git::NextVersion: '0'
   Dist::Zilla::Plugin::Homepage: '0'
+  Dist::Zilla::Plugin::MetaJSON: '0'
   Dist::Zilla::Plugin::PodWeaver: '0'
   Dist::Zilla::Plugin::RemovePrereqs: '0'
   Dist::Zilla::Plugin::Repository: '0'
@@ -49,3 +50,4 @@ resources:
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-MSCHOUT/
   repository: git://github.com/mschout/dist-zilla-pluginbundle-mschout.git
 version: '0.30'
+x_serialization_backend: 'YAML::Tiny version 1.63'
