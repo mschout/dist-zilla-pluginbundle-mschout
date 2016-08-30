@@ -2,6 +2,7 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
     - Configure Git::Push to also push build/releases if it exists on origin
+    - signature test: skip generated files
 
 0.30  2016-08-30
     - Mention use_travis and use_twitter options in POD docs
