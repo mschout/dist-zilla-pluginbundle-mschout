@@ -49,5 +49,5 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-PluginBundle-MSCHOUT
   homepage: http://search.cpan.org/dist/Dist-Zilla-PluginBundle-MSCHOUT/
   repository: git://github.com/mschout/dist-zilla-pluginbundle-mschout.git
-version: '0.30'
+version: '0.31'
 x_serialization_backend: 'YAML::Tiny version 1.63'
