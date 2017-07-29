@@ -4,6 +4,7 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 
 use Moose;
 use Moose::Autobox;
+use namespace::autoclean;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
         Dist::Zilla::Role::PluginBundle::Config::Slicer
@@ -131,8 +132,6 @@ sub configure {
 }
 
 __PACKAGE__->meta->make_immutable;
-no Moose;
-1;
 
 __END__
 
