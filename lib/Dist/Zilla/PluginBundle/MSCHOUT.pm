@@ -45,6 +45,7 @@ sub configure {
     $self->add_plugins(
         qw(
             AutoPrereqs
+            MinimumPerl
             Repository
             Bugtracker
             Homepage
@@ -136,6 +137,7 @@ It's equivalent to:
  remove = PodVersion
 
  [AutoPrereqs]
+ [MinimumPerl]
  [PodWeaver]
  [Repository]
  [Bugtracker]
