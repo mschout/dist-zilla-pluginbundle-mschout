@@ -12,22 +12,42 @@ has is_task => (
     is      => 'ro',
     isa     => 'Bool',
     lazy    => 1,
-    default => sub { $_[0]->payload->{task} }
-);
+    default => sub { $_[0]->payload->{task} });
+
+has upload => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { !($_[0]->payload->{no_upload} || 0) });
+
+has use_travis => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{use_travis} || 0 });
+
+has use_twitter => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{use_twitter} || 0 });
+
+has release_branch => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{release_branch} || 'build/releases' });
+
 
 sub configure {
     my $self = shift;
 
     my $args = $self->payload;
 
-    my $upload = $$args{no_upload} ? 0 : 1;
-    my $release_branch = $$args{release_branch} || 'build/releases';
-    my $use_travis = $$args{use_travis} ? 1 : 0;
-
     my @remove = qw(PodVersion);
 
     # if not uploading, remove the upload plugin, and the confirmation plugin
-    unless ($upload) {
+    if ($self->upload) {
         push @remove, 'UploadToCPAN', 'ConfirmRelease';
     }
 
@@ -39,7 +59,7 @@ sub configure {
     });
 
     # add FakeRelease plugin if uploads are off
-    unless ($upload) {
+    if ($self->upload) {
         $self->add_plugins('FakeRelease');
     }
 
@@ -73,9 +93,9 @@ sub configure {
 
     # we must add Travis before Git::CommitBuild because CommitBuild needs to
     # include the .travis.yml file
-    if ($use_travis) {
+    if ($self->use_travis) {
         $self->add_plugins(
-            [ 'TravisYML' => { build_branch => $release_branch } ]
+            [ 'TravisYML' => { build_branch => $self->release_branch } ]
         );
     }
 
@@ -84,8 +104,8 @@ sub configure {
             Git::Check
             Git::Commit
         ),
-        [ 'Git::CommitBuild' => { release_branch => $release_branch } ],
-        [ 'Git::Tag'         => { branch => $release_branch } ],
+        [ 'Git::CommitBuild' => { release_branch => $self->release_branch } ],
+        [ 'Git::Tag'         => { branch => $self->release_branch } ],
         [
             'Git::Push'        => {
                 push_to => [
@@ -102,7 +122,7 @@ sub configure {
         [ RemovePrereqs => { remove => 'Module::Signature' } ]
     );
 
-    if ($$args{use_twitter} and $upload) {
+    if ($self->use_twitter and $self->upload) {
         $self->add_plugins(
             [ Twitter => { hash_tags => '#perl' } ]
         );
