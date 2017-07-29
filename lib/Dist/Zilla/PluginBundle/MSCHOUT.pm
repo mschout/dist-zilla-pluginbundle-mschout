@@ -3,42 +3,22 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
+use MooseX::AttributeShortcuts;
 use namespace::autoclean;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
         Dist::Zilla::Role::PluginBundle::Config::Slicer
         Dist::Zilla::Role::PluginBundle::PluginRemover);
 
-has is_task => (
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => sub { $_[0]->payload->{task} });
+has is_task => (is => 'lazy', isa => 'Bool');
 
-has upload => (
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => sub { !($_[0]->payload->{no_upload} || 0) });
+has release_branch => (is => 'lazy', isa => 'Str');
 
-has use_travis => (
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => sub { $_[0]->payload->{use_travis} || 0 });
+has upload => (is => 'lazy', isa => 'Bool');
 
-has use_twitter => (
-    is      => 'ro',
-    isa     => 'Bool',
-    lazy    => 1,
-    default => sub { $_[0]->payload->{use_twitter} || 0 });
+has use_travis => (is => 'lazy', isa => 'Bool');
 
-has release_branch => (
-    is      => 'ro',
-    isa     => 'Str',
-    lazy    => 1,
-    default => sub { $_[0]->payload->{release_branch} || 'build/releases' });
-
+has use_twitter => (is => 'lazy', isa => 'Bool');
 
 sub configure {
     my $self = shift;
@@ -68,6 +48,7 @@ sub configure {
         qw(
             AutoPrereqs
             MinimumPerl
+            InsertCopyright
             Repository
             Bugtracker
             Homepage
@@ -130,6 +111,53 @@ sub configure {
     }
 }
 
+sub _option {
+    my ($self, $name, $default) = @_;
+
+    if (exists $self->payload->{$name}) {
+        return $self->payload->{$name}
+    }
+    else {
+        return $default;
+    }
+}
+
+sub _build_is_task {
+    my $self = shift;
+
+    # recognize older option name "task" if present
+    my $task = $self->_option('task');
+    if (defined $task) {
+        return $task;
+    }
+
+    $self->_option('is_task', 0);
+}
+
+sub _build_release_branch {
+    my $self = shift;
+
+    $self->_option('release_branch', 'build/releases');
+}
+
+sub _build_upload {
+    my $self = shift;
+
+    ! $self->_option('no_upload', 0);
+}
+
+sub _build_use_travis {
+    my $self = shift;
+
+    $self->_option('use_travis', 0);
+}
+
+sub _build_use_twitter {
+    my $self = shift;
+
+    $self->_option('use_twitter', 0);
+}
+
 __PACKAGE__->meta->make_immutable;
 
 __END__
@@ -154,6 +182,7 @@ It's equivalent to:
 
  [AutoPrereqs]
  [MinimumPerl]
+ [InsertCopyright]
  [PodWeaver]
  [Repository]
  [Bugtracker]
@@ -185,13 +214,13 @@ The following configuration settings are available:
 
 =begin :list
 
+* is_task
+Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
+C<Git::NextVersion>
 * no_upload
 Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
 * release_branch
 Sets the release branch name.  Default is C<build/releases>.
-* task
-Replaces C<Pod::Weaver> with C<Task::Weaver> and uses C<AutoVersion> instead of
-C<Git::NextVersion>
 * use_travis
 Enables the L<TravisYML|Dist::Zilla::Plugin::TravisYML> Dist Zilla plugin.
 * use_twitter
