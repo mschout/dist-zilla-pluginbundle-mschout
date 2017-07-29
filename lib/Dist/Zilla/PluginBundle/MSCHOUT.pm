@@ -260,3 +260,14 @@ C<no_upload> is set, this plugin is skipped.
 
 =end :list
 
+This PluginBundle supports C<ConfigSlicer>, so you can pass in options to the
+plugins used like this:
+
+  [@MSCHOUT]
+  RemovePrereqs.remove = Module::Signature
+
+This PluginBundle also supports C<PluginRemover>, so removing a plugin is as simple as:
+
+  [@MSCHOUT]
+  -remove = NextRelease
+
