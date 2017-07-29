@@ -3,6 +3,7 @@ Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 {{$NEXT}}
     - add MinimumPerl plugin
     - enable Dist::Zilla::PluginBundle::PluginRemover plugin
+    - make signature test an AUTHOR test and use Test::Signature
 
 0.31  2016-08-30
     - Configure Git::Push to also push build/releases if it exists on origin
