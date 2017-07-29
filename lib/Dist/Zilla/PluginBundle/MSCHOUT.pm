@@ -6,6 +6,7 @@ use Moose;
 use Moose::Autobox;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
+        Dist::Zilla::Role::PluginBundle::Config::Slicer
         Dist::Zilla::Role::PluginBundle::PluginRemover);
 
 has is_task => (
