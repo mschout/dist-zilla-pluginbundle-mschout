@@ -5,7 +5,8 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 use Moose;
 use Moose::Autobox;
 
-with 'Dist::Zilla::Role::PluginBundle::Easy';
+with qw(Dist::Zilla::Role::PluginBundle::Easy
+        Dist::Zilla::Role::PluginBundle::PluginRemover);
 
 has is_task => (
     is      => 'ro',
@@ -126,10 +127,6 @@ This is the pluginbundle that MSCHOUT uses. Use it as:
 
  [@MSCHOUT]
 
-Optionally, for a dist that you do not want to upload to CPAN:
- [@MSCHOUT]
- no_upload = 1
-
 It's equivalent to:
 
  [@Filter]
@@ -158,6 +155,12 @@ It's equivalent to:
  [Git::Push]
 
 =head2 Options
+
+Plugins can be removed from the bundle via L<Dist::Zilla::PluginBundle::PluginRemover>:
+
+ [@MSCHOUT]
+ -remove = AutoPrereqs
+ ...
 
 The following configuration settings are available:
 
