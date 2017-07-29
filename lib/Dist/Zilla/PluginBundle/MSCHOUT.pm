@@ -4,7 +4,36 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 
 use Moose;
 use MooseX::AttributeShortcuts;
-use namespace::autoclean;
+use namespace::autoclean 0.09;
+
+use Dist::Zilla 4.102341;
+
+use Dist::Zilla::PluginBundle::Classic;
+use Dist::Zilla::PluginBundle::Filter;
+use Dist::Zilla::PluginBundle::Git 1.101230;
+
+use Dist::Zilla::Plugin::ArchiveRelease;
+use Dist::Zilla::Plugin::AutoPrereqs;
+use Dist::Zilla::Plugin::AutoVersion;
+use Dist::Zilla::Plugin::Bugtracker;
+use Dist::Zilla::Plugin::CheckPrereqsIndexed;
+use Dist::Zilla::Plugin::FakeRelease;
+use Dist::Zilla::Plugin::Git::NextVersion;
+use Dist::Zilla::Plugin::Homepage;
+use Dist::Zilla::Plugin::InsertCopyright;
+use Dist::Zilla::Plugin::MetaJSON;
+use Dist::Zilla::Plugin::MinimumPerl;
+use Dist::Zilla::Plugin::NextRelease;
+use Dist::Zilla::Plugin::PodWeaver;
+use Dist::Zilla::Plugin::RemovePrereqs;
+use Dist::Zilla::Plugin::Repository;
+use Dist::Zilla::Plugin::Signature;
+use Dist::Zilla::Plugin::TaskWeaver 0.093330;
+use Dist::Zilla::Plugin::TravisYML;
+use Dist::Zilla::Plugin::Twitter;
+
+use Pod::Elemental::Transformer::List;
+use Pod::Weaver::Section::AllowOverride;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
         Dist::Zilla::Role::PluginBundle::Config::Slicer
