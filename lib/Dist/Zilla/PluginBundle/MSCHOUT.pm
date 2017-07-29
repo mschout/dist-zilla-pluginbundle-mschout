@@ -25,6 +25,7 @@ use Dist::Zilla::Plugin::MetaJSON;
 use Dist::Zilla::Plugin::MinimumPerl;
 use Dist::Zilla::Plugin::NextRelease;
 use Dist::Zilla::Plugin::PodWeaver;
+use Dist::Zilla::Plugin::Prereqs::AuthorDeps;
 use Dist::Zilla::Plugin::RemovePrereqs;
 use Dist::Zilla::Plugin::Repository;
 use Dist::Zilla::Plugin::Signature;
@@ -82,6 +83,7 @@ sub configure {
             Bugtracker
             Homepage
             Signature
+            Prereqs::AuthorDeps
             MetaJSON
             ArchiveRelease
         ),
