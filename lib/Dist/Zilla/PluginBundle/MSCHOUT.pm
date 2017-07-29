@@ -3,7 +3,6 @@ package Dist::Zilla::PluginBundle::MSCHOUT;
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
-use Moose::Autobox;
 use namespace::autoclean;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
