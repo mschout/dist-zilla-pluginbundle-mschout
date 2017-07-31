@@ -1,5 +1,5 @@
 package Pod::Weaver::PluginBundle::MSCHOUT;
-$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.33';
+$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.34';
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
 
 # Dependencies
@@ -67,7 +67,7 @@ Pod::Weaver::PluginBundle::MSCHOUT - Pod::Weaver configuration the way MSCHOUT d
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 DESCRIPTION
 
@@ -78,7 +78,7 @@ it with L<Dist::Zilla::PluginBundle::MSCHOUT>
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/mschout/dist-zilla-pluginbundle-mschout>
+The development version is on github at L<https://github.com/mschout/dist-zilla-pluginbundle-mschout>
 and may be cloned from L<git://github.com/mschout/dist-zilla-pluginbundle-mschout.git>
 
 =head1 BUGS

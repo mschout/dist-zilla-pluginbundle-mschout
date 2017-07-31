@@ -1,5 +1,5 @@
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.33';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.34';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -13,6 +13,7 @@ use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git 1.101230;
 
 use Dist::Zilla::Plugin::ArchiveRelease;
+use Dist::Zilla::Plugin::AuthorSignatureTest;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::Plugin::AutoVersion;
 use Dist::Zilla::Plugin::Bugtracker;
@@ -77,6 +78,7 @@ sub configure {
     $self->add_plugins(
         qw(
             AutoPrereqs
+            AuthorSignatureTest
             MinimumPerl
             InsertCopyright
             Repository
@@ -199,7 +201,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.33
+version 0.34
 
 =head1 DESCRIPTION
 
@@ -214,6 +216,7 @@ It's equivalent to:
  remove = PodVersion
 
  [AutoPrereqs]
+ [AuthorSignatureTest]
  [MinimumPerl]
  [InsertCopyright]
  [PodWeaver]
@@ -297,7 +300,7 @@ This PluginBundle also supports C<PluginRemover>, so removing a plugin is as sim
 
 =head1 SOURCE
 
-The development version is on github at L<http://github.com/mschout/dist-zilla-pluginbundle-mschout>
+The development version is on github at L<https://github.com/mschout/dist-zilla-pluginbundle-mschout>
 and may be cloned from L<git://github.com/mschout/dist-zilla-pluginbundle-mschout.git>
 
 =head1 BUGS
