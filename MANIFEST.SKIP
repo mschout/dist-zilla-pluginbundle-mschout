@@ -67,5 +67,4 @@
 dist.ini
 .travis.yml
 dist.ini
-MANIFEST.SKIP
 ^MYMETA\.json$
