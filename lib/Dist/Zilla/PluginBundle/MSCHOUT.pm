@@ -13,6 +13,7 @@ use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git 1.101230;
 
 use Dist::Zilla::Plugin::ArchiveRelease;
+use Dist::Zilla::Plugin::AuthorSignatureTest;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::Plugin::AutoVersion;
 use Dist::Zilla::Plugin::Bugtracker;
@@ -77,6 +78,7 @@ sub configure {
     $self->add_plugins(
         qw(
             AutoPrereqs
+            AuthorSignatureTest
             MinimumPerl
             InsertCopyright
             Repository
@@ -210,6 +212,7 @@ It's equivalent to:
  remove = PodVersion
 
  [AutoPrereqs]
+ [AuthorSignatureTest]
  [MinimumPerl]
  [InsertCopyright]
  [PodWeaver]
