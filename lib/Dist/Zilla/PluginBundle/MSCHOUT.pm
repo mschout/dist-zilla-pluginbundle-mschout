@@ -1,3 +1,5 @@
+# COPYRIGHT
+
 package Dist::Zilla::PluginBundle::MSCHOUT;
 
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does

@@ -1,3 +1,5 @@
+# COPYRIGHT
+
 package Pod::Weaver::PluginBundle::MSCHOUT;
 
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
