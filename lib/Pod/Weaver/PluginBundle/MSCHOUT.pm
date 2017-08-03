@@ -1,5 +1,14 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-MSCHOUT
+#
+# This software is copyright (c) 2017 by Michael Schout.
+#
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+#
+
 package Pod::Weaver::PluginBundle::MSCHOUT;
-$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.34';
+$Pod::Weaver::PluginBundle::MSCHOUT::VERSION = '0.35';
 # ABSTRACT: Pod::Weaver configuration the way MSCHOUT does it
 
 # Dependencies
@@ -67,7 +76,7 @@ Pod::Weaver::PluginBundle::MSCHOUT - Pod::Weaver configuration the way MSCHOUT d
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 DESCRIPTION
 

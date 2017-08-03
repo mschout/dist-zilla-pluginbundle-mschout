@@ -1,5 +1,14 @@
+#
+# This file is part of Dist-Zilla-PluginBundle-MSCHOUT
+#
+# This software is copyright (c) 2017 by Michael Schout.
+#
+# This is free software; you can redistribute it and/or modify it under
+# the same terms as the Perl 5 programming language system itself.
+#
+
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.34';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.35';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -12,7 +21,6 @@ use Dist::Zilla::PluginBundle::Classic;
 use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git 1.101230;
 
-use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::AuthorSignatureTest;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::Plugin::AutoVersion;
@@ -87,7 +95,6 @@ sub configure {
             Signature
             Prereqs::AuthorDeps
             MetaJSON
-            ArchiveRelease
         ),
         # update release in Changes file
         [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ]
@@ -201,7 +208,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.34
+version 0.35
 
 =head1 DESCRIPTION
 
@@ -225,7 +232,6 @@ It's equivalent to:
  [Homepage]
  [Signature]
  [MetaJSON]
- [ArchiveRelease]
  [NextRelease]
     format = "%-2v  %{yyyy-MM-dd}d"
  [Git::Check]

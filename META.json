@@ -35,7 +35,6 @@
       "runtime" : {
          "requires" : {
             "Dist::Zilla" : "4.102341",
-            "Dist::Zilla::Plugin::ArchiveRelease" : "0",
             "Dist::Zilla::Plugin::AuthorSignatureTest" : "0",
             "Dist::Zilla::Plugin::AutoPrereqs" : "0",
             "Dist::Zilla::Plugin::AutoVersion" : "0",
@@ -95,7 +94,7 @@
          "web" : "https://github.com/mschout/dist-zilla-pluginbundle-mschout"
       }
    },
-   "version" : "0.34",
+   "version" : "0.35",
    "x_serialization_backend" : "Cpanel::JSON::XS version 3.0217"
 }
 

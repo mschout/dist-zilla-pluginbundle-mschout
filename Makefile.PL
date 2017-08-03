@@ -18,7 +18,6 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::PluginBundle::MSCHOUT",
   "PREREQ_PM" => {
     "Dist::Zilla" => "4.102341",
-    "Dist::Zilla::Plugin::ArchiveRelease" => 0,
     "Dist::Zilla::Plugin::AuthorSignatureTest" => 0,
     "Dist::Zilla::Plugin::AutoPrereqs" => 0,
     "Dist::Zilla::Plugin::AutoVersion" => 0,
@@ -59,7 +58,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.34",
+  "VERSION" => "0.35",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -68,7 +67,6 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Dist::Zilla" => "4.102341",
-  "Dist::Zilla::Plugin::ArchiveRelease" => 0,
   "Dist::Zilla::Plugin::AuthorSignatureTest" => 0,
   "Dist::Zilla::Plugin::AutoPrereqs" => 0,
   "Dist::Zilla::Plugin::AutoVersion" => 0,
