@@ -14,7 +14,6 @@ use Dist::Zilla::PluginBundle::Classic;
 use Dist::Zilla::PluginBundle::Filter;
 use Dist::Zilla::PluginBundle::Git 1.101230;
 
-use Dist::Zilla::Plugin::ArchiveRelease;
 use Dist::Zilla::Plugin::AuthorSignatureTest;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::Plugin::AutoVersion;
@@ -89,7 +88,6 @@ sub configure {
             Signature
             Prereqs::AuthorDeps
             MetaJSON
-            ArchiveRelease
         ),
         # update release in Changes file
         [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ]
@@ -223,7 +221,6 @@ It's equivalent to:
  [Homepage]
  [Signature]
  [MetaJSON]
- [ArchiveRelease]
  [NextRelease]
     format = "%-2v  %{yyyy-MM-dd}d"
  [Git::Check]
