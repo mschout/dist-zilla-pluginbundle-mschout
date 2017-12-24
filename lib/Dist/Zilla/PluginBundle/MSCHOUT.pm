@@ -24,6 +24,7 @@ use Dist::Zilla::Plugin::Git::NextVersion;
 use Dist::Zilla::Plugin::Homepage;
 use Dist::Zilla::Plugin::InsertCopyright;
 use Dist::Zilla::Plugin::MetaJSON;
+use Dist::Zilla::Plugin::MetaProvides::Package;
 use Dist::Zilla::Plugin::MinimumPerl;
 use Dist::Zilla::Plugin::NextRelease;
 use Dist::Zilla::Plugin::PodWeaver;
@@ -87,6 +88,7 @@ sub configure {
             Homepage
             Signature
             Prereqs::AuthorDeps
+            MetaProvides::Package
             MetaJSON
         ),
         # update release in Changes file
