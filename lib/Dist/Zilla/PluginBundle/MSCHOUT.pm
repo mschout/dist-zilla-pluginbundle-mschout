@@ -17,11 +17,10 @@ use Dist::Zilla::PluginBundle::Git 1.101230;
 use Dist::Zilla::Plugin::AuthorSignatureTest;
 use Dist::Zilla::Plugin::AutoPrereqs;
 use Dist::Zilla::Plugin::AutoVersion;
-use Dist::Zilla::Plugin::Bugtracker;
 use Dist::Zilla::Plugin::CheckPrereqsIndexed;
 use Dist::Zilla::Plugin::FakeRelease;
 use Dist::Zilla::Plugin::Git::NextVersion;
-use Dist::Zilla::Plugin::Homepage;
+use Dist::Zilla::Plugin::GithubMeta;
 use Dist::Zilla::Plugin::InsertCopyright;
 use Dist::Zilla::Plugin::MetaJSON;
 use Dist::Zilla::Plugin::MetaProvides::Package;
@@ -30,7 +29,6 @@ use Dist::Zilla::Plugin::NextRelease;
 use Dist::Zilla::Plugin::PodWeaver;
 use Dist::Zilla::Plugin::Prereqs::AuthorDeps;
 use Dist::Zilla::Plugin::RemovePrereqs;
-use Dist::Zilla::Plugin::Repository;
 use Dist::Zilla::Plugin::Signature;
 use Dist::Zilla::Plugin::TaskWeaver 0.093330;
 use Dist::Zilla::Plugin::TravisYML;
@@ -83,16 +81,14 @@ sub configure {
             AuthorSignatureTest
             MinimumPerl
             InsertCopyright
-            Repository
-            Bugtracker
-            Homepage
             Signature
             Prereqs::AuthorDeps
             MetaProvides::Package
             MetaJSON
         ),
         # update release in Changes file
-        [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ]
+        [ NextRelease => { format => '%-2v  %{yyyy-MM-dd}d' } ],
+        [ GithubMeta => { issues => 1 } ]
     );
 
     if ($self->is_task) {
@@ -218,13 +214,14 @@ It's equivalent to:
  [MinimumPerl]
  [InsertCopyright]
  [PodWeaver]
- [Repository]
- [Bugtracker]
- [Homepage]
  [Signature]
  [MetaJSON]
  [NextRelease]
     format = "%-2v  %{yyyy-MM-dd}d"
+
+ [GithubMeta]
+    issues = 1
+
  [Git::Check]
  allow_dirty = .travis.yml
  [Git::Commit]

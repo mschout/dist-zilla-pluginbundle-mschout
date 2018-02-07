@@ -6,7 +6,7 @@ package Pod::Weaver::PluginBundle::MSCHOUT;
 
 # Dependencies
 use Pod::Weaver::Section::SourceGitHub;
-use Pod::Weaver::Section::BugsRT;
+use Pod::Weaver::Section::Bugs;
 
 use Pod::Weaver::Config::Assembler;
 
@@ -40,7 +40,7 @@ sub mvp_bundle_config {
                 match_anywhere => 0
             }
         ],
-        [ '@MSCHOUT/BugsRT',       _exp('BugsRT'),       {} ],
+        [ '@MSCHOUT/Bugs',       _exp('Bugs'),       {} ],
 
         [ '@MSCHOUT/postlude', _exp('Region'), { region_name => 'postlude' } ],
 
