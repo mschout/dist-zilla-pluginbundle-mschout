@@ -54,6 +54,7 @@ sub mvp_bundle_config {
         ],
         [ '@MSCHOUT/Legal',   _exp('Legal'),   {} ],
         [ '@MSCHOUT/List',    _exp('-Transformer'), { transformer => 'List' } ],
+        [ '@MSCHOUT/SingleEncoding', _exp('-SingleEncoding'), {} ],
     );
 }
 

@@ -35,6 +35,7 @@ use Dist::Zilla::Plugin::TravisYML;
 use Dist::Zilla::Plugin::Twitter;
 
 use Pod::Elemental::Transformer::List;
+use Pod::Weaver::Plugin::SingleEncoding;
 use Pod::Weaver::Section::AllowOverride;
 
 with qw(Dist::Zilla::Role::PluginBundle::Easy
