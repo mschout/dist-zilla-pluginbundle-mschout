@@ -1,6 +1,8 @@
 Revision history for Dist::Zilla::PluginBundle::MSCHOUT
 
 {{$NEXT}}
+
+0.38  2018-06-04
     - Add Pod::Weaver::Plugin::SingleEncoding
 
 0.37  2018-02-07
