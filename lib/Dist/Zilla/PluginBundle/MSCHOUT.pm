@@ -8,7 +8,7 @@
 #
 
 package Dist::Zilla::PluginBundle::MSCHOUT;
-$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.39';
+$Dist::Zilla::PluginBundle::MSCHOUT::VERSION = '0.40';
 # ABSTRACT: Use L<Dist::Zilla> like MSCHOUT does
 
 use Moose;
@@ -53,8 +53,6 @@ has is_task => (is => 'lazy', isa => 'Bool');
 has release_branch => (is => 'lazy', isa => 'Str');
 
 has upload => (is => 'lazy', isa => 'Bool');
-
-has use_twitter => (is => 'lazy', isa => 'Bool');
 
 sub configure {
     my $self = shift;
@@ -110,7 +108,7 @@ sub configure {
     }
 
     $self->add_plugins(
-        [ 'Git::Check' => { allow_dirty => [qw(.travis.yml)] } ],
+        [ 'Git::Check' ],
         'Git::Commit',
         [ 'Git::CommitBuild' => { release_branch => $self->release_branch } ],
         [ 'Git::Tag'         => { branch => $self->release_branch } ],
@@ -129,12 +127,6 @@ sub configure {
     $self->add_plugins(
         [ RemovePrereqs => { remove => 'Module::Signature' } ]
     );
-
-    if ($self->use_twitter and $self->upload) {
-        $self->add_plugins(
-            [ Twitter => { hash_tags => '#perl' } ]
-        );
-    }
 }
 
 sub _option {
@@ -172,12 +164,6 @@ sub _build_upload {
     ! $self->_option('no_upload', 0);
 }
 
-sub _build_use_twitter {
-    my $self = shift;
-
-    $self->_option('use_twitter', 0);
-}
-
 __PACKAGE__->meta->make_immutable;
 
 __END__
@@ -192,7 +178,7 @@ Dist::Zilla::PluginBundle::MSCHOUT - Use L<Dist::Zilla> like MSCHOUT does
 
 =head1 VERSION
 
-version 0.39
+version 0.40
 
 =head1 DESCRIPTION
 
@@ -220,7 +206,6 @@ It's equivalent to:
     issues = 1
 
  [Git::Check]
- allow_dirty = .travis.yml
  [Git::Commit]
  [Git::NextVersion]
     first_version = 0.01
@@ -260,12 +245,6 @@ Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
 release_branch
 
 Sets the release branch name.  Default is C<build/releases>.
-
-=item *
-
-use_twitter
-
-Enables the L<Twitter|Dist::Zilla::Plugin::Twitter> Dist Zilla plugin.  If
 C<no_upload> is set, this plugin is skipped.
 
 =back
