@@ -101,7 +101,7 @@ sub configure {
     }
 
     $self->add_plugins(
-        [ 'Git::Check' => { allow_dirty => [qw(.travis.yml)] } ],
+        [ 'Git::Check' ],
         'Git::Commit',
         [ 'Git::CommitBuild' => { release_branch => $self->release_branch } ],
         [ 'Git::Tag'         => { branch => $self->release_branch } ],
@@ -193,7 +193,6 @@ It's equivalent to:
     issues = 1
 
  [Git::Check]
- allow_dirty = .travis.yml
  [Git::Commit]
  [Git::NextVersion]
     first_version = 0.01
