@@ -47,8 +47,6 @@ has release_branch => (is => 'lazy', isa => 'Str');
 
 has upload => (is => 'lazy', isa => 'Bool');
 
-has use_twitter => (is => 'lazy', isa => 'Bool');
-
 sub configure {
     my $self = shift;
 
@@ -122,12 +120,6 @@ sub configure {
     $self->add_plugins(
         [ RemovePrereqs => { remove => 'Module::Signature' } ]
     );
-
-    if ($self->use_twitter and $self->upload) {
-        $self->add_plugins(
-            [ Twitter => { hash_tags => '#perl' } ]
-        );
-    }
 }
 
 sub _option {
@@ -163,12 +155,6 @@ sub _build_upload {
     my $self = shift;
 
     ! $self->_option('no_upload', 0);
-}
-
-sub _build_use_twitter {
-    my $self = shift;
-
-    $self->_option('use_twitter', 0);
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -236,8 +222,6 @@ C<Git::NextVersion>
 Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
 * release_branch
 Sets the release branch name.  Default is C<build/releases>.
-* use_twitter
-Enables the L<Twitter|Dist::Zilla::Plugin::Twitter> Dist Zilla plugin.  If
 C<no_upload> is set, this plugin is skipped.
 
 =end :list
