@@ -31,7 +31,6 @@ use Dist::Zilla::Plugin::Prereqs::AuthorDeps;
 use Dist::Zilla::Plugin::RemovePrereqs;
 use Dist::Zilla::Plugin::Signature;
 use Dist::Zilla::Plugin::TaskWeaver 0.093330;
-use Dist::Zilla::Plugin::TravisYML;
 use Dist::Zilla::Plugin::Twitter;
 
 use Pod::Elemental::Transformer::List;
@@ -47,8 +46,6 @@ has is_task => (is => 'lazy', isa => 'Bool');
 has release_branch => (is => 'lazy', isa => 'Str');
 
 has upload => (is => 'lazy', isa => 'Bool');
-
-has use_travis => (is => 'lazy', isa => 'Bool');
 
 has use_twitter => (is => 'lazy', isa => 'Bool');
 
@@ -102,14 +99,6 @@ sub configure {
         $self->add_plugins(
             [ PodWeaver => { config_plugin => '@MSCHOUT' } ],
             [ 'Git::NextVersion' => { first_version => '0.01' } ]
-        );
-    }
-
-    # we must add Travis before Git::CommitBuild because CommitBuild needs to
-    # include the .travis.yml file
-    if ($self->use_travis) {
-        $self->add_plugins(
-            [ 'TravisYML' => { build_branch => $self->release_branch } ]
         );
     }
 
@@ -174,12 +163,6 @@ sub _build_upload {
     my $self = shift;
 
     ! $self->_option('no_upload', 0);
-}
-
-sub _build_use_travis {
-    my $self = shift;
-
-    $self->_option('use_travis', 0);
 }
 
 sub _build_use_twitter {
@@ -253,8 +236,6 @@ C<Git::NextVersion>
 Disables C<UploadToCPAN> and C<ConfirmRelease>.  Adds C<FakeRelease>.
 * release_branch
 Sets the release branch name.  Default is C<build/releases>.
-* use_travis
-Enables the L<TravisYML|Dist::Zilla::Plugin::TravisYML> Dist Zilla plugin.
 * use_twitter
 Enables the L<Twitter|Dist::Zilla::Plugin::Twitter> Dist Zilla plugin.  If
 C<no_upload> is set, this plugin is skipped.
